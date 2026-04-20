@@ -8,6 +8,7 @@ const dresscodeColors = [
   { name: "Шоколад", hex: "#6B4226" },
   { name: "Нежно-зелёный", hex: "#A8C5A0" },
   { name: "Шалфей", hex: "#7A9E7E" },
+  { name: "Грязно-розовый", hex: "#C4958A" },
 ]
 
 const details = [
