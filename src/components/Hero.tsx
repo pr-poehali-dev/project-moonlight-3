@@ -8,9 +8,63 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-12 pt-20">
+    <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-12 pt-8">
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-sand/30 to-background" />
+
+      {/* Decorative top-left branch */}
+      <svg className="absolute top-16 left-0 w-64 h-64 opacity-60 pointer-events-none" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 180 Q40 120 80 90 Q120 60 160 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M80 90 Q60 70 50 50" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <path d="M80 90 Q100 75 115 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <path d="M120 60 Q105 45 100 25" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <ellipse cx="50" cy="48" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-30 50 48)"/>
+        <ellipse cx="116" cy="53" rx="10" ry="6" fill="#A8C5A0" transform="rotate(20 116 53)"/>
+        <ellipse cx="100" cy="23" rx="9" ry="5" fill="#7A9E7E" transform="rotate(-10 100 23)"/>
+        <ellipse cx="160" cy="18" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-40 160 18)"/>
+        <ellipse cx="40" cy="130" rx="8" ry="5" fill="#A8C5A0" transform="rotate(15 40 130)"/>
+        {/* Pink flowers */}
+        <circle cx="52" cy="48" r="5" fill="#C4958A" opacity="0.8"/>
+        <circle cx="49" cy="43" r="3.5" fill="#D4A89A" opacity="0.7"/>
+        <circle cx="55" cy="44" r="3" fill="#C4958A" opacity="0.6"/>
+      </svg>
+
+      {/* Decorative top-right branch */}
+      <svg className="absolute top-16 right-0 w-64 h-64 opacity-60 pointer-events-none" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: 'scaleX(-1)'}}>
+        <path d="M10 180 Q40 120 80 90 Q120 60 160 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M80 90 Q60 70 50 50" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <path d="M80 90 Q100 75 115 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <path d="M120 60 Q105 45 100 25" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <ellipse cx="50" cy="48" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-30 50 48)"/>
+        <ellipse cx="116" cy="53" rx="10" ry="6" fill="#A8C5A0" transform="rotate(20 116 53)"/>
+        <ellipse cx="100" cy="23" rx="9" ry="5" fill="#7A9E7E" transform="rotate(-10 100 23)"/>
+        <ellipse cx="160" cy="18" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-40 160 18)"/>
+        <ellipse cx="40" cy="130" rx="8" ry="5" fill="#A8C5A0" transform="rotate(15 40 130)"/>
+        {/* Pink flowers */}
+        <circle cx="118" cy="52" r="5" fill="#C4958A" opacity="0.8"/>
+        <circle cx="114" cy="48" r="3.5" fill="#D4A89A" opacity="0.7"/>
+        <circle cx="121" cy="49" r="3" fill="#C4958A" opacity="0.6"/>
+      </svg>
+
+      {/* Decorative bottom-left */}
+      <svg className="absolute bottom-0 left-0 w-48 h-48 opacity-50 pointer-events-none" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 160 Q30 120 60 90 Q90 60 130 30" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M60 90 Q45 72 35 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <ellipse cx="35" cy="53" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-20 35 53)"/>
+        <ellipse cx="130" cy="28" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-35 130 28)"/>
+        <circle cx="37" cy="52" r="5" fill="#C4958A" opacity="0.75"/>
+        <circle cx="33" cy="48" r="3" fill="#D4A89A" opacity="0.6"/>
+      </svg>
+
+      {/* Decorative bottom-right */}
+      <svg className="absolute bottom-0 right-0 w-48 h-48 opacity-50 pointer-events-none" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: 'scaleX(-1)'}}>
+        <path d="M0 160 Q30 120 60 90 Q90 60 130 30" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M60 90 Q45 72 35 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+        <ellipse cx="35" cy="53" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-20 35 53)"/>
+        <ellipse cx="130" cy="28" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-35 130 28)"/>
+        <circle cx="37" cy="52" r="5" fill="#C4958A" opacity="0.75"/>
+        <circle cx="33" cy="48" r="3" fill="#D4A89A" opacity="0.6"/>
+      </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         {/* Overline */}
@@ -60,12 +114,6 @@ export function Hero() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
-          <a
-            href="#process"
-            className="inline-flex items-center gap-2 px-8 py-4 text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
-          >
-            Программа дня
           </a>
         </div>
       </div>

@@ -14,13 +14,13 @@ const dresscodeColors = [
 const details = [
   {
     title: "Дата и место",
-    description: "08 августа 2026 года, суббота. г. Курган, ул. Садовая, 54.",
+    description: "08 августа 2026 года, суббота, 18:00. Банкет-холл Камелот, г. Курган, ул. Садовая, 54.",
     iconName: "MapPin",
     extra: null,
   },
   {
     title: "Дресс-код",
-    description: "Просим придерживаться палитры: бежевый, коричневый, нежно-зелёный. Без чёрного, пожалуйста.",
+    description: "",
     iconName: "Shirt",
     extra: "colors",
   },

@@ -7,6 +7,7 @@ export function Contact() {
     name: "",
     attending: "",
     allergy: "",
+    music: "",
   })
   const [submitted, setSubmitted] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
@@ -176,6 +177,21 @@ export function Contact() {
                     onChange={(e) => setFormState({ ...formState, allergy: e.target.value })}
                     className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-sage focus:outline-none transition-colors"
                     placeholder="Укажите, если есть (или оставьте пустым)"
+                  />
+                </div>
+
+                {/* Music */}
+                <div>
+                  <label htmlFor="music" className="block text-xs tracking-widest uppercase text-muted-foreground mb-3">
+                    Пожелания по музыке
+                  </label>
+                  <input
+                    type="text"
+                    id="music"
+                    value={formState.music}
+                    onChange={(e) => setFormState({ ...formState, music: e.target.value })}
+                    className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-sage focus:outline-none transition-colors"
+                    placeholder="Исполнитель или трек, под который хочется танцевать"
                   />
                 </div>
 
