@@ -22,7 +22,7 @@ export function Testimonial() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-32 lg:py-40 px-6 lg:px-12 bg-sage">
+    <section ref={sectionRef} className="py-20 lg:py-28 px-6 lg:px-12 bg-sage">
       <div className="max-w-5xl mx-auto text-center">
         {/* Quote Mark */}
         <div

@@ -1,5 +1,65 @@
 import { useEffect, useState } from "react"
 
+/* ── Peony SVG component ── */
+function Peony({ cx, cy, r, opacity = 0.75 }: { cx: number; cy: number; r: number; opacity?: number }) {
+  const petals = [
+    { dx: 0, dy: -r * 1.1 },
+    { dx: r * 1.0, dy: -r * 0.5 },
+    { dx: r * 1.0, dy: r * 0.5 },
+    { dx: 0, dy: r * 1.1 },
+    { dx: -r * 1.0, dy: r * 0.5 },
+    { dx: -r * 1.0, dy: -r * 0.5 },
+  ]
+  return (
+    <g opacity={opacity}>
+      {/* outer petals */}
+      {petals.map((p, i) => (
+        <ellipse
+          key={i}
+          cx={cx + p.dx * 0.6}
+          cy={cy + p.dy * 0.6}
+          rx={r * 0.85}
+          ry={r * 0.55}
+          fill="#C4958A"
+          fillOpacity="0.7"
+          transform={`rotate(${i * 60} ${cx} ${cy})`}
+        />
+      ))}
+      {/* mid petals */}
+      {petals.map((p, i) => (
+        <ellipse
+          key={`m${i}`}
+          cx={cx + p.dx * 0.35}
+          cy={cy + p.dy * 0.35}
+          rx={r * 0.7}
+          ry={r * 0.45}
+          fill="#D4A89A"
+          fillOpacity="0.75"
+          transform={`rotate(${i * 60 + 30} ${cx} ${cy})`}
+        />
+      ))}
+      {/* centre */}
+      <circle cx={cx} cy={cy} r={r * 0.38} fill="#E8C4BA" fillOpacity="0.9" />
+      <circle cx={cx} cy={cy} r={r * 0.18} fill="#F0D5CC" fillOpacity="0.95" />
+    </g>
+  )
+}
+
+/* ── Leaf SVG component ── */
+function Leaf({ x, y, rx, ry, rotate, color = "#A8C5A0" }: { x: number; y: number; rx: number; ry: number; rotate: number; color?: string }) {
+  return (
+    <ellipse
+      cx={x}
+      cy={y}
+      rx={rx}
+      ry={ry}
+      fill={color}
+      fillOpacity="0.45"
+      transform={`rotate(${rotate} ${x} ${y})`}
+    />
+  )
+}
+
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -12,58 +72,62 @@ export function Hero() {
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-sand/30 to-background" />
 
-      {/* Decorative top-left branch */}
-      <svg className="absolute top-16 left-0 w-64 h-64 opacity-60 pointer-events-none" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 180 Q40 120 80 90 Q120 60 160 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-        <path d="M80 90 Q60 70 50 50" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <path d="M80 90 Q100 75 115 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <path d="M120 60 Q105 45 100 25" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <ellipse cx="50" cy="48" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-30 50 48)"/>
-        <ellipse cx="116" cy="53" rx="10" ry="6" fill="#A8C5A0" transform="rotate(20 116 53)"/>
-        <ellipse cx="100" cy="23" rx="9" ry="5" fill="#7A9E7E" transform="rotate(-10 100 23)"/>
-        <ellipse cx="160" cy="18" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-40 160 18)"/>
-        <ellipse cx="40" cy="130" rx="8" ry="5" fill="#A8C5A0" transform="rotate(15 40 130)"/>
-        {/* Pink flowers */}
-        <circle cx="52" cy="48" r="5" fill="#C4958A" opacity="0.8"/>
-        <circle cx="49" cy="43" r="3.5" fill="#D4A89A" opacity="0.7"/>
-        <circle cx="55" cy="44" r="3" fill="#C4958A" opacity="0.6"/>
+      {/* ── TOP-LEFT branch ── */}
+      <svg className="absolute top-0 left-0 w-72 h-72 pointer-events-none" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* main stem */}
+        <path d="M0 210 Q35 150 75 105 Q115 60 175 15" stroke="#7A9E7E" strokeWidth="1.6" strokeLinecap="round"/>
+        {/* side stems */}
+        <path d="M75 105 Q55 78 42 52" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M115 65 Q130 48 145 30" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M40 145 Q22 128 15 108" stroke="#7A9E7E" strokeWidth="1.1" strokeLinecap="round"/>
+        {/* leaves */}
+        <Leaf x={42} y={50} rx={13} ry={6} rotate={-35}/>
+        <Leaf x={42} y={50} rx={10} ry={5} rotate={-10} color="#7A9E7E"/>
+        <Leaf x={145} y={28} rx={12} ry={6} rotate={-50}/>
+        <Leaf x={175} y={13} rx={11} ry={5} rotate={-45} color="#7A9E7E"/>
+        <Leaf x={14} y={107} rx={11} ry={5} rotate={30}/>
+        <Leaf x={55} y={155} rx={10} ry={5} rotate={20} color="#7A9E7E"/>
+        {/* peony */}
+        <Peony cx={42} cy={50} r={12} opacity={0.8}/>
       </svg>
 
-      {/* Decorative top-right branch */}
-      <svg className="absolute top-16 right-0 w-64 h-64 opacity-60 pointer-events-none" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: 'scaleX(-1)'}}>
-        <path d="M10 180 Q40 120 80 90 Q120 60 160 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-        <path d="M80 90 Q60 70 50 50" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <path d="M80 90 Q100 75 115 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <path d="M120 60 Q105 45 100 25" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <ellipse cx="50" cy="48" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-30 50 48)"/>
-        <ellipse cx="116" cy="53" rx="10" ry="6" fill="#A8C5A0" transform="rotate(20 116 53)"/>
-        <ellipse cx="100" cy="23" rx="9" ry="5" fill="#7A9E7E" transform="rotate(-10 100 23)"/>
-        <ellipse cx="160" cy="18" rx="10" ry="6" fill="#A8C5A0" transform="rotate(-40 160 18)"/>
-        <ellipse cx="40" cy="130" rx="8" ry="5" fill="#A8C5A0" transform="rotate(15 40 130)"/>
-        {/* Pink flowers */}
-        <circle cx="118" cy="52" r="5" fill="#C4958A" opacity="0.8"/>
-        <circle cx="114" cy="48" r="3.5" fill="#D4A89A" opacity="0.7"/>
-        <circle cx="121" cy="49" r="3" fill="#C4958A" opacity="0.6"/>
+      {/* ── TOP-RIGHT branch (mirrored) ── */}
+      <svg className="absolute top-0 right-0 w-72 h-72 pointer-events-none" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "scaleX(-1)" }}>
+        <path d="M0 210 Q35 150 75 105 Q115 60 175 15" stroke="#7A9E7E" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M75 105 Q55 78 42 52" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M115 65 Q130 48 145 30" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M40 145 Q22 128 15 108" stroke="#7A9E7E" strokeWidth="1.1" strokeLinecap="round"/>
+        <Leaf x={42} y={50} rx={13} ry={6} rotate={-35}/>
+        <Leaf x={42} y={50} rx={10} ry={5} rotate={-10} color="#7A9E7E"/>
+        <Leaf x={145} y={28} rx={12} ry={6} rotate={-50}/>
+        <Leaf x={175} y={13} rx={11} ry={5} rotate={-45} color="#7A9E7E"/>
+        <Leaf x={14} y={107} rx={11} ry={5} rotate={30}/>
+        <Leaf x={55} y={155} rx={10} ry={5} rotate={20} color="#7A9E7E"/>
+        <Peony cx={145} cy={28} r={11} opacity={0.75}/>
       </svg>
 
-      {/* Decorative bottom-left */}
-      <svg className="absolute bottom-0 left-0 w-48 h-48 opacity-50 pointer-events-none" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 160 Q30 120 60 90 Q90 60 130 30" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-        <path d="M60 90 Q45 72 35 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <ellipse cx="35" cy="53" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-20 35 53)"/>
-        <ellipse cx="130" cy="28" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-35 130 28)"/>
-        <circle cx="37" cy="52" r="5" fill="#C4958A" opacity="0.75"/>
-        <circle cx="33" cy="48" r="3" fill="#D4A89A" opacity="0.6"/>
+      {/* ── BOTTOM-LEFT branch ── */}
+      <svg className="absolute bottom-0 left-0 w-52 h-52 pointer-events-none" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 170 Q30 130 60 95 Q95 58 140 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M60 95 Q42 76 32 56" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M95 60 Q110 45 120 28" stroke="#7A9E7E" strokeWidth="1.1" strokeLinecap="round"/>
+        <Leaf x={31} y={54} rx={12} ry={5} rotate={-25}/>
+        <Leaf x={31} y={54} rx={9} ry={4} rotate={5} color="#7A9E7E"/>
+        <Leaf x={120} y={27} rx={11} ry={5} rotate={-40}/>
+        <Leaf x={70} y={130} rx={10} ry={5} rotate={18} color="#7A9E7E"/>
+        <Peony cx={31} cy={54} r={10} opacity={0.7}/>
       </svg>
 
-      {/* Decorative bottom-right */}
-      <svg className="absolute bottom-0 right-0 w-48 h-48 opacity-50 pointer-events-none" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: 'scaleX(-1)'}}>
-        <path d="M0 160 Q30 120 60 90 Q90 60 130 30" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-        <path d="M60 90 Q45 72 35 55" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-        <ellipse cx="35" cy="53" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-20 35 53)"/>
-        <ellipse cx="130" cy="28" rx="9" ry="5" fill="#A8C5A0" transform="rotate(-35 130 28)"/>
-        <circle cx="37" cy="52" r="5" fill="#C4958A" opacity="0.75"/>
-        <circle cx="33" cy="48" r="3" fill="#D4A89A" opacity="0.6"/>
+      {/* ── BOTTOM-RIGHT branch ── */}
+      <svg className="absolute bottom-0 right-0 w-52 h-52 pointer-events-none" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "scaleX(-1)" }}>
+        <path d="M0 170 Q30 130 60 95 Q95 58 140 20" stroke="#7A9E7E" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M60 95 Q42 76 32 56" stroke="#7A9E7E" strokeWidth="1.2" strokeLinecap="round"/>
+        <path d="M95 60 Q110 45 120 28" stroke="#7A9E7E" strokeWidth="1.1" strokeLinecap="round"/>
+        <Leaf x={31} y={54} rx={12} ry={5} rotate={-25}/>
+        <Leaf x={31} y={54} rx={9} ry={4} rotate={5} color="#7A9E7E"/>
+        <Leaf x={120} y={27} rx={11} ry={5} rotate={-40}/>
+        <Leaf x={70} y={130} rx={10} ry={5} rotate={18} color="#7A9E7E"/>
+        <Peony cx={120} cy={27} r={10} opacity={0.7}/>
       </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
