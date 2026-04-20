@@ -28,7 +28,7 @@ export function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Анна & Борис
+          Антон & Виктория
           <span className="block text-sage italic">приглашают на свадьбу</span>
         </h1>
 
