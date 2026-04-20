@@ -6,6 +6,7 @@ export function Contact() {
   const [formState, setFormState] = useState({
     name: "",
     attending: "",
+    allergy: "",
   })
   const [submitted, setSubmitted] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
@@ -161,6 +162,21 @@ export function Contact() {
                       <span className="text-foreground">К сожалению, не смогу прийти</span>
                     </label>
                   </div>
+                </div>
+
+                {/* Allergy */}
+                <div>
+                  <label htmlFor="allergy" className="block text-xs tracking-widest uppercase text-muted-foreground mb-3">
+                    Аллергии или пищевые ограничения
+                  </label>
+                  <input
+                    type="text"
+                    id="allergy"
+                    value={formState.allergy}
+                    onChange={(e) => setFormState({ ...formState, allergy: e.target.value })}
+                    className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-sage focus:outline-none transition-colors"
+                    placeholder="Укажите, если есть (или оставьте пустым)"
+                  />
                 </div>
 
                 <button

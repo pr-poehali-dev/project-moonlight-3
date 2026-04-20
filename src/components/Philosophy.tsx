@@ -87,7 +87,7 @@ export function Philosophy() {
                 <p className="text-xs tracking-widest uppercase text-muted-foreground mt-2">Лет вместе</p>
               </div>
               <div>
-                <p className="font-serif text-3xl md:text-4xl text-sage">14.06</p>
+                <p className="font-serif text-3xl md:text-4xl text-sage">08.08</p>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground mt-2">Дата свадьбы</p>
               </div>
               <div>

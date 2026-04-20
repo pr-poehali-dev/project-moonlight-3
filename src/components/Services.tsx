@@ -1,26 +1,27 @@
 import { useEffect, useRef, useState } from "react"
 import Icon from "@/components/ui/icon"
 
+const dresscodeColors = [
+  { name: "Бежевый", hex: "#C9B99A" },
+  { name: "Кремовый", hex: "#EDE0CC" },
+  { name: "Карамель", hex: "#A67C52" },
+  { name: "Шоколад", hex: "#6B4226" },
+  { name: "Нежно-зелёный", hex: "#A8C5A0" },
+  { name: "Шалфей", hex: "#7A9E7E" },
+]
+
 const details = [
   {
     title: "Дата и место",
-    description: "08 августа 2026 года, суббота. Город Курган. Место проведения будет указано дополнительно.",
+    description: "08 августа 2026 года, суббота. г. Курган, ул. Садовая, 54.",
     iconName: "MapPin",
+    extra: null,
   },
   {
     title: "Дресс-код",
     description: "Просим придерживаться палитры: бежевый, коричневый, нежно-зелёный. Без чёрного, пожалуйста.",
     iconName: "Shirt",
-  },
-  {
-    title: "Где остановиться",
-    description: "Для гостей из других городов забронированы номера в отеле «Лесной» — 5 минут от места торжества.",
-    iconName: "BedDouble",
-  },
-  {
-    title: "Дети и питание",
-    description: "Дети приветствуются! Пожалуйста, сообщите об аллергиях или особых пожеланиях при подтверждении.",
-    iconName: "Heart",
+    extra: "colors",
   },
 ]
 
@@ -81,6 +82,23 @@ export function Services() {
               </div>
               <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">{item.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+
+              {item.extra === "colors" && (
+                <div className="flex flex-wrap gap-3 mt-6">
+                  {dresscodeColors.map((color) => (
+                    <div key={color.name} className="flex flex-col items-center gap-2">
+                      <div
+                        className="w-10 h-10 rounded-full border border-border shadow-sm"
+                        style={{ backgroundColor: color.hex }}
+                        title={color.name}
+                      />
+                      <span className="text-[10px] text-muted-foreground tracking-wide text-center leading-tight max-w-[48px]">
+                        {color.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
