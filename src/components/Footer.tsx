@@ -30,31 +30,18 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Social */}
-          <div className="md:col-span-2">
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Соцсети</p>
+          {/* Contacts */}
+          <div className="md:col-span-4">
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Остались вопросы?</p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Будем рады ответить — напишите нам в ВКонтакте:
+            </p>
             <nav className="flex flex-col gap-3">
-              <a href="#" className="text-sm text-foreground hover:text-sage transition-colors">
-                Instagram
+              <a href="https://vk.com/tohne" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground hover:text-sage transition-colors">
+                Антон (жених)
               </a>
-              <a href="#" className="text-sm text-foreground hover:text-sage transition-colors">
-                Pinterest
-              </a>
-              <a href="#" className="text-sm text-foreground hover:text-sage transition-colors">
-                Telegram
-              </a>
-            </nav>
-          </div>
-
-          {/* Legal */}
-          <div className="md:col-span-2">
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Документы</p>
-            <nav className="flex flex-col gap-3">
-              <a href="#" className="text-sm text-foreground hover:text-sage transition-colors">
-                Политика
-              </a>
-              <a href="#" className="text-sm text-foreground hover:text-sage transition-colors">
-                Условия
+              <a href="https://vk.com/youaregaydumbass" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground hover:text-sage transition-colors">
+                Виктория (невеста)
               </a>
             </nav>
           </div>
