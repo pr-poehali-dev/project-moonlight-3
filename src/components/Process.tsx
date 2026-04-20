@@ -2,28 +2,28 @@ import { useEffect, useRef, useState } from "react"
 
 const steps = [
   {
-    number: "01",
-    title: "Слушаем",
+    number: "11:00",
+    title: "Сбор гостей",
     description:
-      "Мы начинаем с присутствия. Понимаем не только ваше пространство, но и то, как вы в нём живёте — ваши ритмы, потребности, стремления.",
+      "Встречаем вас в фойе усадьбы. Лёгкие закуски, живая музыка и время познакомиться с другими гостями.",
   },
   {
-    number: "02",
-    title: "Видим",
+    number: "12:00",
+    title: "Церемония",
     description:
-      "Вместе исследуем возможности. Мудборды, образцы материалов и пространственные концепции рождаются из нашего диалога.",
+      "Торжественная регистрация брака в Белом зале. Просим занять места за 10 минут до начала.",
   },
   {
-    number: "03",
-    title: "Создаём",
+    number: "13:30",
+    title: "Фуршет и прогулка",
     description:
-      "С намерением и заботой воплощаем видение в жизнь. Каждая деталь продумана, каждый элемент осмыслен.",
+      "Шампанское, фотосессия в саду и время для живого общения перед банкетом.",
   },
   {
-    number: "04",
-    title: "Живём",
+    number: "15:00",
+    title: "Банкет",
     description:
-      "Пространство готово, но путешествие продолжается. Мы следим, чтобы ваш дом развивался вместе с вами.",
+      "Праздничный ужин, тосты, танцы и самые тёплые моменты этого дня — вместе до самого вечера.",
   },
 ]
 
@@ -60,23 +60,24 @@ export function Process() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
-                Наш процесс
+                Программа дня
               </p>
               <h2
                 className={`font-serif text-4xl md:text-5xl font-light text-foreground mb-6 text-balance transition-all duration-1000 delay-200 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Путь
-                <span className="italic"> осознанности</span>
+                День,
+                <span className="italic"> который</span>
+                <br />
+                запомнится
               </h2>
               <p
                 className={`text-muted-foreground leading-relaxed transition-all duration-1000 delay-300 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Настоящие пространства не создаются в спешке. Они раскрываются через вдумчивый процесс,
-                уважающий и архитектуру, и людей, которые будут здесь жить.
+                Каждый момент этого дня мы выстраивали с заботой о вас — чтобы было тепло, красиво и по-настоящему.
               </p>
             </div>
           </div>
@@ -93,7 +94,7 @@ export function Process() {
                   style={{ transitionDelay: `${400 + index * 150}ms` }}
                 >
                   <div className="flex gap-8 lg:gap-12">
-                    <span className="font-serif text-4xl lg:text-5xl text-stone/50 group-hover:text-sage transition-colors duration-500">
+                    <span className="font-serif text-4xl lg:text-5xl text-stone/50 group-hover:text-sage transition-colors duration-500 min-w-[80px]">
                       {step.number}
                     </span>
                     <div>
